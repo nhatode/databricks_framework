@@ -5,3 +5,4 @@
   * stage_delta
   * transform_delta
 ###### Function Delta --
+    This python file deals with all the user define function  
