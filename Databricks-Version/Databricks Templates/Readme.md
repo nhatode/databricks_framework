@@ -14,7 +14,10 @@
 
 
 ###### stage_delta --
-    Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. Based on the inputs like "stage","transform" it will         retrieve the data and perform the first level of transformation. We have created user define function in Functions_delta script which will do the cleansing of the     data and load the data in stage layer as per the architecture defined. 
+    Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
+    Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation. 
+    We have created user define function in Functions_delta script which will do the cleansing of the data and load the data in stage layer as per the 
+    architecture defined. 
 
 
 ###### transform_delta --
