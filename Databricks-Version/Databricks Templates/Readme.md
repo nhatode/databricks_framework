@@ -15,13 +15,16 @@
 
 ###### stage_delta --
     Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
-    Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation. 
+    Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation i.e it will read the data depending on the
+    file formate and perform transformation like changing the datatype creating the partitioned and load it into the stage delta_tables with partian and refreshing 
+    the delta table.   
+    *Note*: Use of delta table is to provide us the ACID transaction, Upsert.
     We have created user define function in Functions_delta script which will do the cleansing of the data and load the data in stage layer as per the 
     architecture defined. 
 
 
 ###### transform_delta --
-    This Transform delta code deals with following loadstrategies from given input file. 
+    This Transform delta script deals to load the final table with following loadstrategies from given input file. 
     
     When sqlrefresh is true then newly added 'sqlrefresh_query' parameter can refresh only 7 days prior data from SQL server. 
     Note: If sqlrefresh_query = "" or sqlrefresh_query is not provided in inputjson then entire SQL table will be refreshed into ADLS.
