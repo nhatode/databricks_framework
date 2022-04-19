@@ -11,7 +11,7 @@
     This python file deals with all the user define function.
 
 ###### Join_delta_reports_calculation --
-
+    This Script file deals with the Reporting the data to the c.
 
 ###### stage_delta --
     Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
