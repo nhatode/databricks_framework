@@ -1,3 +1,15 @@
+# Life cycle of Framework
+
+1. What is Framework?
+  * Frameworks are platforms used to develop applications. It provides software developers with a structure to build programs that run on a specific platform. 
+  * In a framework, for instance, input can be processed, hardware devices can be managed, and system software can be interacted with.
+  * In addition to libraries and compilers, a framework could also contain various other programs that are typically needed in software development.
+  * This transformation deals with taking input from the users in JSON file with pre-defined key & values and then load the data into respective stages.  
+3. Why do we need?
+4. 
+
+
+
 # Databricks_Framework
 
 ##### Basic Architecture diagram
