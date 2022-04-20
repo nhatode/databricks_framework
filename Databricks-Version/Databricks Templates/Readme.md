@@ -6,9 +6,18 @@
   * transform_delta
 ###### Function Delta --
     This python file deals with all the user define function.
+    The following are some examples of user-defined functions/transformations created in this framework:
+    - Replace Invalid charater(s) like "space, ;,{},(),\n,\t" with "_"
+    - Convert DataTypes into String, Integer, Long, Timestamp, dateformate etc.
+    - readcsv based on the input qoute character and escap character
+    - add partition, get partition.
+    - set default values if input json does not have it.
+    - date_func (this will create partition based on the date parameter inputed)
+
     
 ###### Join_delta_loop --
-    This python file deals with all the user define function.
+    This python file work on joining tables provided in the input json and load into transform/cureted layer.
+    
 
 ###### Join_delta_reports_calculation --
     This Script file deals with the Reporting the data to the c.
