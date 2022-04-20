@@ -4,6 +4,7 @@
   * Join_delta_reports_calculation
   * stage_delta
   * transform_delta
+
 ###### Function Delta --
     This python file deals with all the user define function.
     The following are some examples of user-defined functions/transformations created in this framework:
@@ -23,13 +24,17 @@
     This Script file deals with the Reporting the data to the c.
 
 ###### stage_delta --
-    Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
-    Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation i.e it will read the data depending on the
-    file formate and perform transformation like changing the datatype creating the partitioned and load it into the stage delta_tables with partian and refreshing 
-    the delta table.   
-    *Note*: Use of delta table is to provide us the ACID transaction, Upsert.
-    We have created user define function in Functions_delta script which will do the cleansing of the data and load the data in stage layer as per the 
-    architecture defined. 
+Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
+Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation i.e it will read the data depending on the
+file formate and perform transformation like changing the datatype creating the partitioned and load it into the stage delta_tables with partian and refreshing 
+the delta table.   
+*Note*: Use of delta table is to provide us the ACID transaction, Upsert.
+We have created user define function in Functions_delta script which will do the cleansing of the data and load the data in stage layer as per the 
+architecture defined. 
+    
+![Dataflow](images/Stage_Template.jpeg "Data flow Diagram")
+
+  
 
 
 ###### transform_delta --
