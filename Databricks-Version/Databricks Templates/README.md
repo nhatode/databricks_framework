@@ -21,7 +21,7 @@
     
 
 ###### Join_delta_reports_calculation --
-    This Script file deals with the Reporting the data to the c.
+    This python script file specificly created to load data for reporting tables in transformed layered  .
 
 ###### stage_delta --
     Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
