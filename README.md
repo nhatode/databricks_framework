@@ -12,7 +12,11 @@
 3. ### Testing the framework?
   * The purpose of a testing framework is to provide guidelines or rules for creating and designing test cases. A framework consists of practices and tools that QA professionals can use to test more effectively.
 4. ### Common Transformation used? 
-  * 
+  * The following are some examples of user-defined transformations created with this framework:
+    - Replace Invalid charater(s) like "space, ;,{},(),\n,\t" with "_"
+    - Convert DataTypes into String, Integer, Long, Timestamp, dateformate etc.
+    - readcsv based on the input qoute character and escap character
+    - add partition, get partition.
 
 
 # Databricks_Framework
