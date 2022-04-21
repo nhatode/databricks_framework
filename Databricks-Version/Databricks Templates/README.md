@@ -1,12 +1,12 @@
 ###### This folder contain following five files:
   * Functions_delta
-  * Join_delta_loop
-  * Join_delta_reports_calculation
   * stage_delta
   * transform_delta
+  * Join_delta_loop
+  * Join_delta_reports_calculation
 
 ###### Function Delta --
-    This python file deals with all the user define function.
+    This notebook deals with all the user define function.
     The following are some examples of user-defined functions/transformations created in this framework:
     - Replace Invalid charater(s) like "space, ;,{},(),\n,\t" with "_"
     - Convert DataTypes into String, Integer, Long, Timestamp, dateformate etc.
@@ -14,14 +14,6 @@
     - add partition, get partition.
     - set default values if input json does not have it.
     - date_func (this will create partition based on the date parameter inputed)
-
-    
-###### Join_delta_loop --
-    This python file work on joining tables provided in the input json and load into transform/cureted layer.
-    
-
-###### Join_delta_reports_calculation --
-    This python script file specificly created to load data for reporting tables in transformed layered  .
 
 ###### stage_delta --
     Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
@@ -61,3 +53,11 @@
     
     Business_key parameter is not mandatory for loadstrategies APPEND and OVERWRITE unless you want to remove duplicates within the same load. 
     However, business_key is required for UPSERT.
+    
+    
+###### Join_delta_loop --
+    This notebook work on joining tables present in the transform layer provided in the input json and load into transform/cureted layer.
+    
+
+###### Join_delta_reports_calculation --
+    This notebook specificly created to load data for reporting tables in transformed layered  .
