@@ -1,5 +1,5 @@
 # Databricks_Framework
-This framework is created for the ETL implementation. It extracts data from csv, EXCEL, JSON, table then transform using pyspark and load to MicroSoft SQL Server with loading strategies Append, Upsert, overwrite and Type 2. This is automated ETL framework can be useful for any ETL based project, we need to create .py job file for inputs which contains source details, Join details like sources, transformations and final column name in target tables and pass this input to the framework and load the target tables in the Microsoft SQL server.
+For the implementation of ETL, this framework was created. The code extracts data from CSV, EXCEL, JSON, and a table. It then transforms it using PySpark and loads it to MicroSoft SQL Server using Append, Upsert, Overwrite, and Type 2 loading strategies. This automated ETL framework can be used for any ETL project. For the inputs we must create .py job files that contain source details, join details like sources, transformations, and the final column names in the target tables; this is the input we pass to the framework which loads the target tables in Microsoft SQL Server.
 
 # Repo Stucture 
 
