@@ -8,7 +8,13 @@
 2. #### Why do we need?
   * Working on new applications can sometimes be complex. Over time, libraries will no longer suffice. What is needed is structure, and order in the chaos of code. 
   * That is where Frameworks come into play. 
-  * Below frameworks deals with, taking input from the users in JSON file formate with pre-defined key & values and then load the data into respective layers with transformation.  
+  * Below frameworks deals with, The company Ingredion is a food producer with many plants across the country. It needs to process data for around 40 plants. 
+    For one or two plants, we will automate the process, whereas the rest will be developed using a low-code strategy. We have a team that is not trained in Spark or       DataBricks. To meet customer deadlines, we need a mechanism that automates the ETL processing, reduces maintenance costs, and saves our customers money. 
+    Delta tables are used because they provide ACID transactions and isolation level to Spark, since they are parquet-based, columnar formats with transaction logs. 
+
+    Developers will create a single JSON input for each job, which will be used for all notebooks.
+    Eg. container names, stage table name, load strategies insert, update and upsert etc. 
+ 
 3. #### Testing the framework?
   * The purpose of a testing framework is to provide guidelines or rules for creating and designing test cases. A framework consists of practices and tools that QA professionals can use to test more effectively.
 4. #### Common Transformation used? 
