@@ -1,11 +1,11 @@
 ###### This folder contain following five files:
-  * Functions_delta
-  * stage_delta
-  * transform_delta
-  * Join_delta_loop
-  * Join_delta_reports_calculation
+  * Functions_notebook
+  * Stage_notebook
+  * Transform_notebook
+  * Join_Notebook
+  * Join_reports_calculation_notebook
 
-###### Function Delta --
+###### Functions_notebook --
     This notebook deals with all the user define function.
     The following are some examples of user-defined functions/transformations created in this framework:
     - Replace Invalid charater(s) like "space, ;,{},(),\n,\t" with "_"
@@ -15,14 +15,13 @@
     - set default values if input json does not have it.
     - date_func (this will create partition based on the date parameter inputed)
 
-###### stage_delta --
-    Stage Delta script gets the parameters from the "input_file.json" and extracts the details provided in it. 
-    Based on the inputs like "stage","transform" it will retrieve the data and perform the first level of transformation i.e it will 
-    read the data depending on the file formate and perform transformation like changing the datatype creating the partitioned and load 
-    it into the stage delta_tables with partian and refreshing the delta table.   
-    *Note*: Use of delta table is to provide us the ACID transaction, Upsert.
-    We have created user define function in Functions_delta script which will do the cleansing of the data and load the data in stage 
-    layer as per the architecture defined. 
+###### Stage_notebook --
+   
+    - Extracting data from different formats:
+       csv, Excel, json and text files from ADLS. 
+    - Data Cleaning: remove unwanted character.
+    - Data type conversion: Create tables in a stage container with the required schema and then convert the datatypes of all columns, loading data into stage tables with the required structure.
+    - Adding the partitions when loading data to the stage tables.
 
 ###### flow diagram of Stage_delta --    
 ![dataflow](https://github.com/nhatode/databricks_framework/blob/main/images/Stage_Template.jpeg "dataflow")
@@ -30,34 +29,29 @@
   
 
 
-###### transform_delta --
-    This Transform delta script deals to load the final table with following loadstrategies from given input file. 
+###### transform_notebook --
+    This Transform notebook deals to load the final table with following loadstrategies: 
     
-    When sqlrefresh is true then newly added 'sqlrefresh_query' parameter can refresh only 7 days prior data from SQL server. 
-    Note: If sqlrefresh_query = "" or sqlrefresh_query is not provided in inputjson then entire SQL table will be refreshed into ADLS.
-    When sqlrefresh is "True/False" save SQL table in temporary ADLS table.
+    - Read data from stage tables. 
+    - Then apply transformations on the data as per given SQL query in input json. 
+    - Load the transformed data as per load strategies apend only, update, overwrite, upsert and type 2.
+	     For load we used Business key which combination of columns which we will use for identify new inserts, updated records. 
+    - Then data will loaded to adls and csv, xml, sql server table formats.
     
-    **Overwrite**: It will directly overwrite ADLS and SQL table data.
-    **Append**: SQL refresh "False": Incoming data will append to ADLS and SQL table data.
-    **Append**: SQL refresh "True": SQL data will merge into ADLS and then incoming data will merge into ADLS and SQL.
-    **Upsert**: If sqlrefresh is "True" or "False" then SQL table data will be loaded into temp table.
+###### Join_notebook --
+    This notebook work on joining tables from transform layer and load into transform/cureted layer.
     
-    **Sqlrefresh**: "False": incoming data will merge into ADLS and then merge into internal temp(sql refresh data) with name outputDB.outputTable+"_temp". 
-    Temp table extract will load into data in SQL tables.
-    
-    **Sqlrefresh**: "True": incoming data will merge into ADLS and then merge into temp(sql refresh data). Temp table extract will load into sql. 
-    After this, Temp table extract will merge into ADLS table.
-    
-    Temp table will be dropped once load completed.
-    Then merge final sql table data into ADLS.
-    
-    Business_key parameter is not mandatory for loadstrategies APPEND and OVERWRITE unless you want to remove duplicates within the same load. 
-    However, business_key is required for UPSERT.
-    
-    
-###### Join_delta_loop --
-    This notebook work on joining tables present in the transform layer provided in the input json and load into transform/cureted layer.
+    - Once data loaded to transform container and we need further processing then join notebook can be used. 
+    - Multiple sources of data like sql server table, sql query based on transform table and stage table can be joined and select required column's data and then load to the data mart container. 
+    - once joined data is generated this notebook reuses transform notebook to load data to datamart container
     
 
-###### Join_delta_reports_calculation --
-    This notebook specificly created to load data for reporting tables in transformed layered  .
+###### Join_reports_calculation_notebook --
+    This notebook specificly created to load data for reporting tables from transformed layered.
+    
+    - There were various reports getting generated which have calculations and formulas.
+    - For this you can simply pass csv format data with formulas mentioned in one column and any other transformations.
+    - This notebook were automatically generates the reports usning csv file given.
+    - Again reuses transform notebook for loading final output to datamart.
+
+
