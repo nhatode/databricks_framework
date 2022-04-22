@@ -6,9 +6,8 @@
   * In addition to libraries and compilers, a framework could also contain various other programs that are typically needed in software development.
   
 2. #### Why do we need?
-  * Working on new applications can sometimes be complex. Over time, libraries will no longer suffice. What is needed is structure, and order in the chaos of code. 
-  * That is where Frameworks come into play. 
-  * Below frameworks deals with, The company Ingredion is a food producer with many plants across the country. It needs to process data for around 40 plants. 
+  * Working on new applications can sometimes be complex. Over time, libraries will no longer suffice. What is needed is structure, and order in the chaos of code. That is where Frameworks come into play. 
+  * This framework deals with the company name Ingredion. This company is a food producer with many plants across the country. It needs to process data for around 40 plants. 
     For one or two plants, we will automate the process, whereas the rest will be developed using a low-code strategy. We have a team that is not trained in Spark or       DataBricks. To meet customer deadlines, we need a mechanism that automates the ETL processing, reduces maintenance costs, and saves our customers money. 
     Delta tables are used because they provide ACID transactions and isolation level to Spark, since they are parquet-based, columnar formats with transaction logs. 
 
@@ -41,7 +40,7 @@ ______
 
 #### Lets deep dive in the architecture :
 
-ETL (Extract-Transform-Load) is the process of extracting, transforming, and loading data. Using Azure Data Factory pipelines in the Ingestion layer and Extract layer, we are extracting flat files from a variety of sources and adding them to a raw layer on Azure Data Lakes (ADLS). Once the data is available in the raw layer using ADF we are calling our databricks framework and perform some of the transformation on the raw data. Transformations are done on the basis of input provided to the framework.
+ETL (Extract-Transform-Load) is the process of extracting, transforming, and loading data. Using Azure Data Factory pipelines in the Ingestion layer, we are extracting flat files from a variety of sources and adding them to a raw layer on Azure Data Lakes (ADLS). Once the data is available in the raw layer using ADF we are calling our databricks framework/notebooks and perform some of the transformation on the raw data and storing them in stage layer. As stage data is more cleaned and trasformed we are consuming those data and perfrom transformations using sql queries from input json and moved to transform containers in ADLS which will be consume for Datamart tables. These Transform and Datamart tables will be consume for reporting purpuse at the end.  
 
 
 [Click here](https://github.com/nhatode/databricks_framework/tree/main/Databricks-Version)
